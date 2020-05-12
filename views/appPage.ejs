@@ -5,98 +5,85 @@
             <%= title %>
         </title>
         <script src="https://kit.fontawesome.com/abc62f7ecd.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="">
+        <link rel="stylesheet" type="text/css" href="css/appPage.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
     </head>
     
     <body>
         <!-- heading -->
-        <h1>
-            To do App
-        </h1>
-
-        <form action="" id="input-form">
-            <!-- div for text area for entering task -->
-            <div id="task">
-                <label for="describe">Description</label>
-                <textarea name="describe" id="#describe"></textarea>
-            </div>
-            
-            <!-- div for inputing category, date and priority -->
-            <div>
-                            <!-- input for category -->
-                <div id="category">
-                    <label for="drop-menu">category</label>
-                    <select id="drop-menu" name="drop-menu">
-                        <option value="Choose a category">Choose a category</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Work">Work</option>
-                        <option value="School">School</option>
-                        <option value="College">College</option>
-                        <option value="Household">Household</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div> 
-                            <!-- input for date -->
-                <div id="calendar">
-                    <label for="d-m-y">Deadline</label>
-                    <input type="date">
+        <div id="card">
+            <h1>
+                To do App
+            </h1>
+    
+            <form action="" id="input-form" method="POST">
+                <!-- div for text area for entering task -->
+                <div id="task">
+                    <label class="details" for="describe">Description</label><br/>
+                    <textarea class="user-input" name="describe" id="describe" placeholder="Enter task descrition here"></textarea>
                 </div>
-                        <!-- input of priority for the task -->
-                <div id="priority">
-                    <p>Task Priority</p>
-                    <div>
-                        <span>
-                            <input type="radio" name="urgent" id="high">
-                            <label for="high">High</label>
-                        </span>
-                        <span>
-                            <input type="radio" name="urgent" id="low">
-                            <label for="low">Low</label>
-                        </span>                        
+                
+                <!-- div for inputing category, date and priority -->
+           
+                                <!-- input for category -->
+                    <div id="category">
+                        <label class="details" for="drop-menu">Category</label><br/>
+                        <select class="user-input" id="drop-menu" name="drop-menu">
+                            <option value="Choose a category">Choose a category</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="College">College</option>
+                            <option value="Household">Household</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div> 
+                                <!-- input for date -->
+                    <div id="calendar">
+                        <label class="details" for="d-m-y">Deadline</label><br/>
+                        <input class="user-input" type="date">
                     </div>
-                    
-                <!-- buttons for adding and removing task -->
-                <div >
-                    <button type="submit">Add task</button>
-                    <button type="button">Remove task</button>
+                            <!-- input of priority for the task -->
+                    <div id="priority">
+                        <label class="details">Task Priority</label><br/>
+                        <div>
+                            <span class="radio-option">
+                                <input type="radio" name="urgent" id="high">
+                                <label for="high">High</label>
+                            </span>
+                            <span class="radio-option">
+                                <input type="radio" name="urgent" id="low">
+                                <label for="low">Low</label>
+                            </span>   
+                            <span class="radio-option">
+                                <input type="radio" name="urgent" id="low">
+                                <label for="low">None</label>
+                            </span>                     
+                        </div>
+                    </div>    
+                    <!-- buttons for adding and removing task -->
+                    <div id="form-btn">
+                        <button id="add-btn" type="submit">Add task</button>
+                        <button id="delete-btn" type="button">Remove task</button>
+                    </div>
+                
+            </form>
+    
+            <div id="task-list">
+                <!-- if the list is empty -->
+                <div id="empty-list">
+                    <h3>
+                        You are done for the day
+                    </h3>
                 </div>
+                <!-- tasks as list items -->
+                <ul>
+                    
+                </ul>
+    
             </div>
-        </form>
-
-        <div id="task-list">
-            <!-- if the list is empty -->
-            <div id="empty-list">
-                <h3>
-                    You are done for the day
-                </h3>
-            </div>
-            <!-- tasks as list items -->
-            <ul>
-                <!-- arrange task in the order of deadline -->
-                <!-- <% for(let i=0; i<tasks; i++) { %>
-                    <li data-order="">
-                        <input type="checkbox">
-                        !-- description of task --
-                        <span>
-                            <%= i.task %>
-                        </span>
-                        !-- due date of task --
-                        <span>
-                            <%= i.deadline %>
-                        </span>
-                        !-- category of task --
-                        <span>
-                            <% i.genre %>
-                        </span>
-                        !-- priority of task --
-                        <span>
-                            <% i.urgent %>
-                        </span>
-                    </li>
-                <% } %> -->
-            </ul>
-
         </div>
+        
 
     </body>
 </html>

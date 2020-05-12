@@ -3,6 +3,9 @@ const port = 9000;
 const app = express();
 const path = require("path");
 
+//directing app to assests folder for using static folder
+app.use(express.static("./assests"));
+
 // setting and configuring path of view engine
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
