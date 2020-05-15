@@ -1,9 +1,16 @@
-const express = require("express");
-const port = 9000;
-const app = express();
-const path = require("path");
 
-//directing app to assests folder for using static folder
+const express = require("express");             //import express library
+const port = 9000;                              //declaring and defining port no
+const app = express();                         //adding functionality of express
+const path = require("path");                  //importing path for views
+
+// establishing connection with database via mongoose
+const db = require("./config/mongoose")
+
+//middleware to take data from the form
+app.use(express.urlencoded());
+
+//directing app to assests folder for using static files: css,images,scripts
 app.use(express.static("./assests"));
 
 // setting and configuring path of view engine

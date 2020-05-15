@@ -16,19 +16,19 @@
                 To do App
             </h1>
     
-            <form action="" id="input-form" method="POST">
+            <form action="/add_new_task" id="input-form" method="POST">
                 <!-- div for text area for entering task -->
                 <div id="task">
-                    <label class="details" for="describe">Description</label><br/>
-                    <textarea class="user-input" name="describe" id="describe" placeholder="Enter task descrition here"></textarea>
+                    <label class="details" for="task">Description</label><br/>
+                    <input type="text" class="user-input" name="task" id="describe" placeholder="Enter task descrition here">
                 </div>
                 
                 <!-- div for inputing category, date and priority -->
            
                                 <!-- input for category -->
-                    <div id="category">
-                        <label class="details" for="drop-menu">Category</label><br/>
-                        <select class="user-input" id="drop-menu" name="drop-menu">
+                    <div id="category-input">
+                        <label class="details" for="category">Category</label><br/>
+                        <select class="user-input" id="drop-menu" name="category" for="category-input">
                             <option value="Choose a category">Choose a category</option>
                             <option value="Personal">Personal</option>
                             <option value="Work">Work</option>
@@ -40,31 +40,33 @@
                     </div> 
                                 <!-- input for date -->
                     <div id="calendar">
-                        <label class="details" for="d-m-y">Deadline</label><br/>
-                        <input class="user-input" type="date">
+                        <label class="details" for="deadline">Deadline</label><br/>
+                        <input class="user-input" type="date" name="deadline" min="">
                     </div>
                             <!-- input of priority for the task -->
-                    <div id="priority">
+                    <div id="priority-input">
                         <label class="details">Task Priority</label><br/>
                         <div>
                             <span class="radio-option">
-                                <input type="radio" name="urgent" id="high">
-                                <label for="high">High</label>
+                                <input type="radio" name="priority" id="high" value="high">
+                                <label class="option" for="high">High</label>
                             </span>
                             <span class="radio-option">
-                                <input type="radio" name="urgent" id="low">
-                                <label for="low">Low</label>
+                                <input type="radio" name="priority" id="low" value="low">
+                                <label class="option" for="low">Low</label>
                             </span>   
                             <span class="radio-option">
-                                <input type="radio" name="urgent" id="low">
-                                <label for="low">None</label>
+                                <input type="radio" name="urgent" id="none" value="none"> 
+                                <label class="option" for="none">None</label>
                             </span>                     
                         </div>
                     </div>    
                     <!-- buttons for adding and removing task -->
                     <div id="form-btn">
                         <button id="add-btn" type="submit">Add task</button>
-                        <button id="delete-btn" type="button">Remove task</button>
+                    
+                        <button id="delete-btn" type="submit" form="deletion-form" >Remove tasks</button>   
+                        
                     </div>
                 
             </form>
@@ -78,12 +80,24 @@
                 </div>
                 <!-- tasks as list items -->
                 <ul>
+                    <form name="deletion" action="/delete_tasks" id="deletion-form" method="POST">
+                        <% for (let i of task_list) { %>
+                        
+                            <li class="mytask-list">        
+                                <input type="checkbox" class="check_task" name="task_id" value="<%= i._id %>">  
+                                <span class="task highlight"><%= i.task %></span>
+                                <span class="task-category highlight"><%= i.category %></span>          
+                                <span class="task-deadline highlight"><%= i.deadline %></span>
+                                <span class="task-priority highlight"><%= i.priority %></span>                        
+                            </li>
+                        <% } %>
+                    </form>
                     
                 </ul>
     
             </div>
         </div>
         
-
+        <script type="text/javascript" src="script/appPage_script.js"></script>
     </body>
 </html>
