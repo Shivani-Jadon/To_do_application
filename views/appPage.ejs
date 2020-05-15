@@ -15,7 +15,8 @@
             <h1>
                 To do App
             </h1>
-    
+            
+            <!-- form for taking user input and sending user data for insertion in database -->
             <form action="/add_new_task" id="input-form" method="POST">
                 <!-- div for text area for entering task -->
                 <div id="task">
@@ -63,28 +64,33 @@
                     </div>    
                     <!-- buttons for adding and removing task -->
                     <div id="form-btn">
-                        <button id="add-btn" type="submit">Add task</button>
-                    
+                        <!-- submit button for insertion form -->
+                        <button id="add-btn" type="submit" form="input-form">Add task</button>
+                        <!-- submit button for deletion form -->
                         <button id="delete-btn" type="submit" form="deletion-form" >Remove tasks</button>   
                         
                     </div>
                 
             </form>
-    
+            
+            <!-- the information of the task will be shown here which is rendered from database -->
             <div id="task-list">
-                <!-- if the list is empty -->
+                <!-- if the list is empty/no task given this will be shown on the screen -->
                 <div id="empty-list">
                     <h3>
                         You are done for the day
                     </h3>
                 </div>
-                <!-- tasks as list items -->
+                <!-- tasks description from the database shown here as list items -->
                 <ul>
+                    <!-- this form will send checked data(task) to be deleted from the database and task-list -->
                     <form name="deletion" action="/delete_tasks" id="deletion-form" method="POST">
                         <% for (let i of task_list) { %>
                         
-                            <li class="mytask-list">        
-                                <input type="checkbox" class="check_task" name="task_id" value="<%= i._id %>">  
+                            <li class="mytask-list"> 
+                                  <!-- checkbox taking the selected input to be deleted -->
+                                <input type="checkbox" class="check_task" name="task_id" value="<%= i._id %>"> 
+                                 <!--task description, category, deadline, priority  -->
                                 <span class="task highlight"><%= i.task %></span>
                                 <span class="task-category highlight"><%= i.category %></span>          
                                 <span class="task-deadline highlight"><%= i.deadline %></span>

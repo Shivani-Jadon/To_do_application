@@ -3,6 +3,7 @@ const route = express.Router();
 
 console.log("Route Loaded");
 
+//storing information of the controller for fetching task to the view
 const to_do_app = require("../controller/to_do_app");
 
 // get request to the to_do_app controller

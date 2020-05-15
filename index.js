@@ -7,6 +7,7 @@ const path = require("path");                  //importing path for views
 // establishing connection with database via mongoose
 const db = require("./config/mongoose")
 
+// adding middlewares for desired functionality
 //middleware to take data from the form
 app.use(express.urlencoded());
 

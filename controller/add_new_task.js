@@ -1,5 +1,7 @@
+//storing the information of the database schema 
 const taskDetails = require("../models/task_model");
 
+//function to add data in the database and send response
 module.exports.addTask = function(req,res){
     
     taskDetails.create({
