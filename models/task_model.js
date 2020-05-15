@@ -1,16 +1,19 @@
+// importing mongoose library
 const mongoose = require("mongoose");
 
+// designing the schema for storing task database
 const task_schema = new mongoose.Schema({
+    // data fields and 
      task : {
          type: String,
-         //required : true
+         required : true
      },
      category : {
          type : String
      },
      deadline : {
          type: Date,
-         //required: true
+         required: true
      } ,
      priority : {
          type : String
