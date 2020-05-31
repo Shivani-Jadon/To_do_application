@@ -21,7 +21,7 @@
             </h1>
             
             <!-- form for taking user input and sending user data for insertion in database -->
-            <form action="/add_new_task" id="input-form" method="POST">
+            <form action="/add_new_task/createTask" id="input-form" method="POST">
                 <!-- div for text area for entering task -->
                 <div id="task">
                     <label class="details" for="task"><i class="fas fa-pen"></i> Description</label><br/>
@@ -83,7 +83,7 @@
                 <!-- tasks description from the database shown here as list items -->
                 <ul>
                     <!-- this form will send checked data(task) to be deleted from the database and task-list -->
-                    <form name="deletion" action="/delete_tasks" id="deletion-form" method="POST">
+                    <form name="deletion" action="/delete_tasks/delete" id="deletion-form" method="POST">
                         <% for (let i of task_list) { %>
                         
                             <li class="mytask-list"> 

@@ -7,7 +7,7 @@ module.exports.application = function(req, res){
     taskDetails.find({}, function(err, tasks){
         if(err){
             console.log("Error in reading from the view ", err);
-            return;
+            return res.redirect("error");
         }
     
         // rendering the app page from views

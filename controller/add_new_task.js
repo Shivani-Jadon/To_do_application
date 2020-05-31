@@ -13,7 +13,7 @@ module.exports.addTask = function(req,res){
 
             if(err){
                 console.log("error in updating in database ", err);
-                return;
+                return res.redirect("error");
             }
 
             return res.redirect("back");    //back will take you to the previous page

@@ -15,7 +15,7 @@ module.exports.deletion_of_task = function(req,res){
         taskDetails.findByIdAndDelete(task, function(err){
             if(err){
                 console.log("Error in deleting from database ",err);
-                return;
+                return res.render("error");
             }
     
         });
@@ -29,7 +29,7 @@ module.exports.deletion_of_task = function(req,res){
             taskDetails.findByIdAndDelete(id, function(err){
                 if(err){
                     console.log("Error in deleting from database ",err);
-                    return;
+                    return res.redirect("error");
                 }
             });                
         }
